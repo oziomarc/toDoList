@@ -9,10 +9,10 @@
 import UIKit
 
 class ToDo {
-    var name = " "
-    var important = false
+    var name : String
+    var important : Bool = false
     
-    init(listName : String){
+    init() {
         name = " "
         important = false
     }
