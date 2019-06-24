@@ -2,66 +2,66 @@
 //  ToDoTableViewController.swift
 //  toDoList
 //
-//  Created by Apple on 6/21/19.
+//  Created by Apple on 6/24/19.
 //  Copyright © 2019 KWK. All rights reserved.
 //
 
 import UIKit
 
 class TableViewController: UITableViewController {
-    
+
      var toDos : [ToDo] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         toDos = createToDos()
-        
+
     }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        
+
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 
-    
+
     func createToDos() -> [ToDo] {
-        
+
         let swift = ToDo()
         swift.name = "Learn swift"
         swift.important = true
-        
+
         let dog = ToDo()
         dog.name = "Walk the Dog"
         // important is set to fasle by default
-        
+
         return [swift, dog]
     }
-    
 
-    
+
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return toDos.count
     }
-    
-    
+
+
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
+
      let toDo = toDos[indexPath.row]
-     
+
         if toDo.important {
             cell.textLabel?.text = "❗️" + toDo.name
         } else {
             cell.textLabel?.text = toDo.name
         }
-        
+
      return cell
      }
-    
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -69,7 +69,7 @@ class TableViewController: UITableViewController {
      return true
      }
      */
-    
+
     /*
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -81,14 +81,14 @@ class TableViewController: UITableViewController {
      }
      }
      */
-    
+
     /*
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
+
      }
      */
-    
+
     /*
      // Override to support conditional rearranging of the table view.
      override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -96,15 +96,15 @@ class TableViewController: UITableViewController {
      return true
      }
      */
-    
+
     /*
      // MARK: - Navigation
-     
+
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
      }
      */
-    
+
 }
